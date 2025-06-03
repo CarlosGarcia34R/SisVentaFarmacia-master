@@ -1,0 +1,403 @@
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\bin\Debug\Negocios.dll
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\bin\Debug\Negocios.pdb
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\bin\Debug\Datos.dll
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\bin\Debug\Entidad.dll
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\bin\Debug\Datos.pdb
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\bin\Debug\Entidad.pdb
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\obj\Debug\Negocios.csproj.AssemblyReference.cache
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\obj\Debug\Negocios.csproj.CopyComplete
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\obj\Debug\Negocios.dll
+C:\Users\fabri\Documents\Practicas-LP\C-Sharp\SistemaFarmacia\Negocios\obj\Debug\Negocios.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll.config
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\AutoMapper.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\itextsharp.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cors.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Net.Http.Headers.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Serilog.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Buffers.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Collections.Immutable.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.AccessControl.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Cryptography.Xml.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Permissions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll.config
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll.config
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\AutoMapper.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\itextsharp.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cors.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Net.Http.Headers.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\Serilog.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Buffers.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Collections.Immutable.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.AssemblyReference.cache
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.Up2Date
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.pdb
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll.config
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.pdb
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\AutoMapper.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\itextsharp.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cors.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Net.Http.Headers.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Serilog.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Buffers.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Collections.Immutable.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Cryptography.Xml.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Permissions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.pdb
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll.config
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.pdb
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll.config
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\AutoMapper.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\itextsharp.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cors.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Net.Http.Headers.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Serilog.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Buffers.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Collections.Immutable.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.AssemblyReference.cache
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.Up2Date
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.dll
+C:\Users\Antonio Garcia\Downloads\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll.config
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Helpers.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Optimization.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Razor.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll.config
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.pdb
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll.config
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Helpers.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Optimization.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Razor.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\es\System.Web.Optimization.resources.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\bin\Debug\es\System.Web.Razor.resources.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.AssemblyReference.cache
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.Up2Date
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.dll
+C:\Users\carlo\Downloads\SisVentaFarmacia-master\SisVentaFarmacia-master (1)\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.pdb
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll.config
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Negocios.pdb
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Antlr3.Runtime.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\AutoMapper.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\itextsharp.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Antiforgery.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cors.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.WebUtilities.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.ObjectPool.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Net.Http.Headers.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Newtonsoft.Json.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Serilog.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Buffers.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Collections.Immutable.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.IO.Pipelines.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.AccessControl.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Cryptography.Xml.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Permissions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Helpers.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Mvc.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Razor.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\WebGrease.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.pdb
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Datos.dll.config
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.pdb
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Entidad.dll.config
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\AutoMapper.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\itextsharp.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Antiforgery.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cors.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Diagnostics.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Html.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.Http.Features.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.AspNetCore.WebUtilities.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.ObjectPool.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Microsoft.Net.Http.Headers.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Newtonsoft.Json.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\Serilog.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Buffers.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Collections.Immutable.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.IO.Pipelines.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Memory.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Channels.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Helpers.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Mvc.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.Razor.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.AssemblyReference.cache
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.CoreCompileInputs.cache
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.csproj.Up2Date
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.dll
+C:\Users\carlo\OneDrive\Escritorio\SisVentaFarmacia-master\Negocios\obj\Debug\Negocios.pdb

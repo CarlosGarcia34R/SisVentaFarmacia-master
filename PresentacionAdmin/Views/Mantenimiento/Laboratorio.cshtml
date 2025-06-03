@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "Laboratorios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3" style="background: #d7dee5; user-select: none;">
+            <li class="breadcrumb-item">
+                <a class="link-body-emphasis text-decoration-none text-dark" href="@Url.Action("Mantenimientos", "Mantenimiento")">
+                    🛠️
+                    Mantenimiento
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                🧪
+                Laboratorios
+            </li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card mb-4 shadow">
+    <div class="card-header text-bg-primary bg-primary" style="background: #4e73df; user-select: none;">
+        <i class="fas fa-flask me-1"></i>
+        Lista de Laboratorios
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="abrirModal()">
+                    Registrar Laboratorio &nbsp; <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <hr />
+        <table id="tablaLaboratorios" class="display cell-border table table-striped py-2 rounded-3 table-bordered border-primary" style="width: 100%; user-select: none;">
+            <thead class="text-center table-primary" style="user-select: none;">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="abrirModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content border-primary">
+            <div class="modal-header border-primary">
+                <h1 class="modal-title fs-5 text-bg-primary rounded-2" id="modalLabel">Laboratorio &nbsp; <i class="fas fa-flask"></i></h1>
+                <button type="button" class="btn-close bg-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formLaboratorio" autocomplete="off">
+                    <input id="idLaboratorio" type="hidden" value="0" />
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombreLaboratorio" placeholder="Nombre del Laboratorio">
+                        <label for="nombreLaboratorio">Nombre</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="estadoLaboratorio">
+                            <option value="1">Activo</option>
+                            <option value="0">Inactivo</option>
+                        </select>
+                        <label for="estadoLaboratorio">Estado</label>
+                    </div>
+
+                    <div id="mensajeError" class="alert alert-danger d-none" role="alert">
+                        <!-- Mensaje de error -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" type="button" onclick="guardarLaboratorio()">Guardar Laboratorio &nbsp; <i class="fas fa-save"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--fin modal-->
+
+@section scripts {
+    <script>
+    var tablaLaboratorios;
+    $(document).ready(function () {
+        var tablaLaboratorios = $("#tablaLaboratorios").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarLaboratorios", "Mantenimiento")',
+                type: "GET",
+                dataType: "json",
+                dataSrc: "data"
+            },
+            "columns": [
+                { "data": "nombre" },
+                {
+                    "data": "estado",
+                    "render": function (valor) {
+                        return valor ? '<span class="badge text-bg-success py-2">Activo</span>' : '<span class="badge text-bg-danger py-2">Inactivo</span>';
+                    }
+                },
+                {
+                    "defaultContent": '<button type="button" class="btn btn-outline-primary btn-sm btn-editar">Editar &nbsp; <i class="fas fa-pencil-alt"></i></button>' +
+                                      '<button type="button" class="btn btn-outline-danger btn-sm ms-2 btn-eliminar">Eliminar &nbsp; <i class="fas fa-trash-alt"></i></button>',
+                    "orderable": false,
+                    "searchable": false
+                }
+            ],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+            }
+        });
+
+
+            $('#tablaLaboratorios tbody').on('click', '.btn-editar', function () {
+                var data = tablaLaboratorios.row($(this).parents('tr')).data();
+                abrirModal(data);
+            });
+
+            $('#tablaLaboratorios tbody').on('click', '.btn-eliminar', function () {
+                var data = tablaLaboratorios.row($(this).parents('tr')).data();
+                eliminarLaboratorio(data.id);
+            });
+        });
+
+    function abrirModal(data) {
+        if (data) {
+            $("#idLaboratorio").val(data.id);
+            $("#nombreLaboratorio").val(data.nombre);
+            $("#estadoLaboratorio").val(data.estado ? 1 : 0);
+        } else {
+            $("#idLaboratorio").val(0);
+            $("#nombreLaboratorio").val('');
+            $("#estadoLaboratorio").val(1);
+        }
+        $("#mensajeError").addClass("d-none");
+        $("#abrirModal").modal("show");
+    }
+
+    function guardarLaboratorio() {
+        var laboratorio = {
+            id: $("#idLaboratorio").val(),
+            nombre: $("#nombreLaboratorio").val(),
+            estado: $("#estadoLaboratorio").val() == "1" ? true : false
+        };
+
+        if (laboratorio.nombre.trim() === '') {
+            $("#mensajeError").removeClass("d-none").text("El nombre del laboratorio es obligatorio.");
+            return;
+        }
+
+        $.ajax({
+            url: '@Url.Action("GuardarLaboratorio", "Mantenimiento")',
+            type: "POST",
+            data: JSON.stringify(laboratorio),
+            contentType: "application/json; charset=utf-8",
+            success: function (response) {
+                if (response.id > 0) {
+                    $("#abrirModal").modal("hide");
+                    tablaLaboratorios.ajax.reload();
+                } else {
+                    $("#mensajeError").removeClass("d-none").text(response.mensaje);
+                }
+            }
+        });
+    }
+
+        function eliminarLaboratorio(id) {
+            if (confirm("¿Estás seguro de eliminar este laboratorio?")) {
+                $.ajax({
+                    url: '@Url.Action("EliminarLaboratorio", "Mantenimiento")',
+                    type: "POST",
+                    data: { id: id },
+                    success: function (response) {
+                        if (response.resultado) {
+                            setTimeout(function() {
+                                tablaLaboratorios.ajax.reload(null, false); // Recargar la tabla después de un breve retraso
+                            }, 500); // 500 ms de retraso
+                        } else {
+                            alert(response.mensaje);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+        }
+
+
+
+    </script>
+}
+
+
+
+

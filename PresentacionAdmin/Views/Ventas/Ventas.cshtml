@@ -1,0 +1,229 @@
+﻿@{
+    ViewBag.Title = "Ventas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-body-tertiary rounded-3 p-3" style="background: #d7dee5;">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Dashboard","Home")" class="text-dark text-decoration-none">
+                    📊 Dashboard
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                🏠 Ventas
+            </li>
+        </ol>
+    </nav>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Ventas</h2>
+        <button id="btnNewSale" class="btn btn-success">Nueva Venta</button>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card bg-warning text-white">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Ventas Totales</h6>
+                        <h3 id="totalVentas">0</h3>
+                    </div>
+                    <i class="fas fa-shopping-bag fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-primary text-white">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Productos Vendidos</h6>
+                        <h3 id="totalProductos">0</h3>
+                    </div>
+                    <i class="fas fa-boxes fa-2x"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-success text-white">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6>Clientes Únicos</h6>
+                        <h3 id="totalClientes">0</h3>
+                    </div>
+                    <i class="fas fa-users fa-2x"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-tags me-1"></i> Historial de Ventas
+        </div>
+        <div class="card-body">
+            <div class="row g-3 mb-3">
+                <div class="col-auto">
+                    <input type="text" id="txtFechaInicio" class="form-control" placeholder="Fecha inicio">
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="txtFechaFin" class="form-control" placeholder="Fecha fin">
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="txtTransaccion" class="form-control" placeholder="ID Transacción">
+                </div>
+                <div class="col-auto">
+                    <button id="btnBuscar" class="btn btn-outline-primary">
+                        Buscar <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <table id="tablaVentas" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Factura</th>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Productos</th>
+                        <th>Total</th>
+                        <th>Transacción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para elegir tipo de venta -->
+<div class="modal fade" id="modalTipoVenta" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tipo de Factura</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <button id="optConsumidor" class="btn btn-outline-primary w-100 mb-2">
+                    Consumidor Final
+                </button>
+                <button id="optCredito" class="btn btn-outline-success w-100">
+                    Crédito Fiscal
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+$(function(){
+    // datepickers
+    $("#txtFechaInicio, #txtFechaFin")
+        .datepicker({ dateFormat: 'dd/mm/yy' })
+        .datepicker('setDate', new Date());
+
+    // resumen
+    function cargarResumen(){
+        $.getJSON('@Url.Action("ResumenVentas","Ventas")', function(r){
+            $("#totalVentas").text(r.totalVentas);
+            $("#totalProductos").text(r.totalProductos);
+            $("#totalClientes").text(r.totalClientes);
+        });
+    }
+
+    // DataTable
+    var table = $("#tablaVentas").DataTable({
+        ajax: {
+            url: '@Url.Action("ListarVentas","Ventas")',
+            data: function(d){
+                d.fechaInicio   = $("#txtFechaInicio").val();
+                d.fechaFin      = $("#txtFechaFin").val();
+                d.idTransaccion = $("#txtTransaccion").val();
+            }
+        },
+        columns: [
+            // 1) Factura
+            {
+                data: null,
+                title: "Factura",
+                render: function (data, type, row) {
+                    return row.SerieFactura + "-"
+                         + String(row.NumeroFactura).padStart(6, '0');
+                }
+            },
+            // 2) Fecha
+            {
+                data: "FechaVenta",
+                title: "Fecha",
+                render: function (val) {
+                    var ms = parseInt(val.replace(/[^0-9]/g, ""), 10);
+                    var d  = new Date(ms);
+                    var dd = ("0" + d.getDate()).slice(-2);
+                    var mm = ("0" + (d.getMonth()+1)).slice(-2);
+                    return dd + "/" + mm + "/" + d.getFullYear();
+                }
+            },
+            // 3) Cliente (Nombre + Apellido)
+            {
+                data: null,
+                title: "Cliente",
+                render: function (data, type, row) {
+                    return (row.NombreCliente || "") + " " + (row.ApellidoCliente || "");
+                }
+            },
+            // 4) Productos (cantidad total)
+            {
+                data: "TotalProducto",
+                title: "Productos"
+            },
+            // 5) Total
+            {
+                data: "MontoTotal",
+                title: "Total",
+                render: $.fn.dataTable.render.number('.', ',', 2)
+            },
+            // 6) Transacción
+            {
+                data: "IdTransaccion",
+                title: "Transacción"
+            },
+            // 7) Acciones
+            {
+                data: "IdVenta",
+                title: "Acciones",
+                orderable: false,
+                render: function (id) {
+                    return `
+                      <a href="/Ventas/GenerarPDF/${id}" class="btn btn-sm btn-secondary">PDF</a>
+                      <a href="/Ventas/GenerarPDFCredito/${id}" class="btn btn-sm btn-success">CF</a>
+                    `;
+                }
+            }
+        ],
+        responsive: true,
+        language: { url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json" }
+    });
+
+    // eventos
+    $("#btnBuscar").click(function(){
+        table.ajax.reload();
+        cargarResumen();
+    });
+    cargarResumen();
+
+    $("#btnNewSale").click(function(){
+        $("#modalTipoVenta").modal("show");
+    });
+    $("#optConsumidor").click(function(){
+        location.href = '@Url.Action("RegistrarVentaConsumidor","Ventas")';
+    });
+    $("#optCredito").click(function(){
+        location.href = '@Url.Action("RegistrarVentaCredito","Ventas")';
+    });
+});
+    </script>
+}

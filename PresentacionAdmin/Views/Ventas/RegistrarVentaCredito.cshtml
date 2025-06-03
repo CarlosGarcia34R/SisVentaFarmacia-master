@@ -1,0 +1,104 @@
+﻿@model Entidad.Venta
+
+@{
+    ViewBag.Title = "Registrar Venta – Crédito Fiscal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registrar Venta – Crédito Fiscal</h2>
+
+@using (Html.BeginForm("RegistrarVentaCredito", "Ventas", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.TipoFactura)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.IdCliente)
+        @Html.TextBoxFor(m => m.IdCliente, new { @class = "form-control", type = "number", min = "1" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NombreCliente)
+        @Html.TextBoxFor(m => m.NombreCliente, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.NITCliente)
+        @Html.TextBoxFor(m => m.NITCliente, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DireccionCliente)
+        @Html.TextBoxFor(m => m.DireccionCliente, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PlazoCreditoDias, "Plazo (días)")
+        @Html.TextBoxFor(m => m.PlazoCreditoDias, new { @class = "form-control", type = "number", min = "0" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FechaVencimiento)
+        @Html.TextBoxFor(m => m.FechaVencimiento, new { @class = "form-control", type = "date" })
+    </div>
+
+    <hr />
+
+    <h3>Detalles de Venta</h3>
+    <table class="table" id="tablaDetalles">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio Unitario</th>
+                <th>Cantidad</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Detalles.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DropDownListFor(m => m.Detalles[i].IdProducto,
+                               new SelectList(ViewBag.ListaProductos, "idproducto", "nombre"),
+                               "Seleccione", new { @class = "form-control" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Detalles[i].Precio,
+                            new { @class = "form-control", type = "number", step = "0.01" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Detalles[i].Cantidad,
+                            new { @class = "form-control", type = "number", min = "1" })
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" onclick="eliminarDetalle(this)">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" onclick="agregarDetalle()">Agregar Detalle</button>
+
+    <hr />
+    <input type="submit" class="btn btn-success" value="Registrar Venta Crédito Fiscal" />
+}
+
+@section Scripts {
+    <script>
+    function agregarDetalle() {
+        var idx = $('#tablaDetalles tbody tr').length;
+        var fila = `<tr>
+            <td>
+                <select name="Detalles[${idx}].IdProducto" class="form-control">
+                    <option value="">Seleccione</option>
+                    @foreach(var p in (IEnumerable<dynamic>)ViewBag.ListaProductos){
+                        <text><option value="@p.idproducto">@p.nombre</option></text>
+                    }
+                </select>
+            </td>
+            <td><input type="number" name="Detalles[${idx}].Precio" class="form-control" step="0.01" /></td>
+            <td><input type="number" name="Detalles[${idx}].Cantidad" class="form-control" min="1" /></td>
+            <td><button type="button" class="btn btn-danger" onclick="eliminarDetalle(this)">Eliminar</button></td>
+        </tr>`;
+        $('#tablaDetalles tbody').append(fila);
+    }
+    function eliminarDetalle(b){ $(b).closest('tr').remove(); }
+    </script>
+}

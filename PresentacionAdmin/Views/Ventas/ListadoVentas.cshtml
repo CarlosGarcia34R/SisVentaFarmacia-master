@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Entidad.Venta>
+
+@{
+    ViewBag.Title = "Listado de Ventas";
+}
+
+<h2>Listado de Ventas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdVenta</th>
+            <th>IdCliente</th>
+            <th>MontoTotal</th>
+            <th>FechaVenta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var venta in Model)
+        {
+            <tr>
+                <td>@venta.IdVenta</td>
+                <td>@venta.IdCliente</td>
+                <td>@venta.MontoTotal</td>
+                <td>@venta.FechaVenta</td>
+                <td>
+                    <!-- Enlace que llama a GenerarPDF -->
+                    <a class="btn btn-info"
+                       href="@Url.Action("GenerarPDF", "Ventas", new { idVenta = venta.IdVenta })"
+                       target="_blank">
+                        Generar Factura
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

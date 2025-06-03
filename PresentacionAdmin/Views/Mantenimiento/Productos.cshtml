@@ -1,0 +1,471 @@
+﻿@{
+    ViewBag.Title = "Productos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-chevron p-3 bg-body-tertiary rounded-3" style="background: #d7dee5; user-select: none;">
+            <li class="breadcrumb-item">
+                <a class="link-body-emphasis text-decoration-none text-dark" href="@Url.Action("Mantenimientos", "Mantenimiento")">
+                    🛠️
+                    Mantenimiento
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                📦
+                Productos
+            </li>
+        </ol>
+    </nav>
+</div>
+
+<div class="card mb-4 shadow">
+    <div class="card-header text-bg-primary bg-primary" style="background: #4e73df; user-select: none;">
+        <i class="fas fa-boxes me-1"></i>
+        Lista de Productos
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="btnabrirmodal(null)">
+                    Registrar Producto &nbsp; <i class="fas fa-boxes me-1"></i>
+                </button>
+            </div>
+        </div>
+        <hr />
+        <table id="tabla" class="display cell-border table table-striped py-2 rounded-3 table-bordered border-primary" style="width: 100%; user-select: none;">
+            <thead class="text-center table-primary" style="user-select: none;">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Categoria</th>
+                    <th>Proveedor</th>
+                    <th>Laboratorio</th>
+                    <th>Stock Caja</th>
+                    <th>Stock Blister</th>
+                    <th>Stock Unidad</th>
+                    <th>Precio Caja</th>
+                    <th>Precio Blister</th>
+                    <th>Precio Unidad</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="abrirmodal" tabindex="-1" aria-labelledby="btnmodalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content border-primary">
+            <div class="modal-header border-primary">
+                <h1 class="modal-title fs-5 text-bg-primary rounded-2" id="btnmodalLabel">&nbsp; Productos <i class="fas fa-boxes me-1"></i> &nbsp;</h1>
+                <button type="button" class="btn-close bg-primary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input id="prodid" type="hidden" value="0" />
+
+                <form id="contenedor" class="row" autocomplete="off">
+
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <img id="imgproducto" height="300" width="600" class="border rounded mx-auto d-block img-fluid" />
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" class="form-control" id="fileproducto" aria-label="file example" accept="image/png, image/jpg, image/jpeg" onchange="mostrarimg(this)">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtnombre" placeholder="nombre" name="nombres">
+                            <label for="txtnombre">Nombre</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="descripcion" id="txtdescripcion" style="height: 120px; resize: none;" name="descripciones"></textarea>
+                            <label for="txtdescripcion">Descripcion</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtprecioCaja" placeholder="Precio Caja" name="precioCaja">
+                            <label for="txtprecioCaja">Precio Caja</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtprecioBlister" placeholder="Precio Blister" name="precioBlister">
+                            <label for="txtprecioBlister">Precio Blister</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="txtprecioUnidad" placeholder="Precio Unidad" name="precioUnidad">
+                            <label for="txtprecioUnidad">Precio Unidad</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="txtcategoria" name="categorias">
+                            </select>
+                            <label for="txtcategoria" class="form-label">Categoria</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="txtproveedor" name="proveedor">
+                            </select>
+                            <label for="txtproveedor" class="form-label">Proveedor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="txtlaboratorio" name="laboratorio">
+                            </select>
+                            <label for="txtlaboratorio" class="form-label">Laboratorio</label>
+                        </div>
+
+                        <!-- Stock de Caja -->
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="stock_caja" placeholder="Stock Caja" name="stock_caja">
+                            <label for="stock_caja">Stock Caja</label>
+                        </div>
+
+                        <!-- Stock de Blister (solo lectura) -->
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="stock_blister" placeholder="Stock Blister" name="stock_blister" readonly>
+                            <label for="stock_blister">Stock Blister</label>
+                        </div>
+
+                        <!-- Stock de Unidades (solo lectura) -->
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="stock_unidad" placeholder="Stock Unidad" name="stock_unidad" readonly>
+                            <label for="stock_unidad">Stock Unidad</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="txtestado" required>
+                                <option selected disabled value="">Elige un estado...</option>
+                                <option value="1">Activar Producto 😀</option>
+                                <option value="0">Desactivar Producto 😭</option>
+                            </select>
+                            <label for="txtestado" class="form-label">Estado</label>
+                        </div>
+                    </div>
+                </form>
+
+                <!--alerta-->
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div id="mensajeError" class="alert alert-danger" role="alert">
+                            <!--An example success alert with an icon-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary" type="button" onclick="guardar()">Guardar Productos &nbsp; <i class="fas fa-boxes me-1"></i> </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--fin modal-->
+
+
+
+@section scripts {
+    <script>
+        var tabladata;
+        var filaseleccionada;
+
+        function mostrarimg(input) {
+            if (input.files) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imgproducto').attr("src", e.target.result).height(300).width(600)
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function btnabrirmodal(json) {
+            // Reiniciar el formulario y valores previos
+            $("#prodid").val(0);
+            $("#imgproducto").removeAttr("src");
+            $("#fileproducto").val("");
+            $("#txtnombre").val("");
+            $("#txtdescripcion").val("");
+            $("#txtprecioCaja").val("");
+            $("#txtprecioBlister").val("");
+            $("#txtprecioUnidad").val("");
+            $("#txtcategoria").val($("#txtcategoria option:first").val());
+            $("#txtproveedor").val($("#txtproveedor option:first").val());
+            $("#txtlaboratorio").val($("#txtlaboratorio option:first").val());
+            $("#stock_caja").val("");
+            $("#stock_blister").val("");
+            $("#stock_unidad").val("");
+            $("#txtestado").val(1);
+            $("#mensajeError").hide();
+
+            // Mostrar el modal principal
+            $("#abrirmodal").modal("show");
+
+            // Añadir un listener al campo de stock de caja
+            $("#stock_caja").off("change").on("change", function () {
+                var cantidadCajas = $(this).val();
+                if (cantidadCajas > 0) {
+                    // Mostrar el modal para solicitar la cantidad de blísteres por caja
+                    solicitarBlisterPorCaja(cantidadCajas);
+                }
+            });
+        }
+
+        function solicitarBlisterPorCaja(cantidadCajas) {
+            // Solicitar la cantidad de blísteres por caja
+            var blisterPorCaja = prompt("¿Cuántos blísteres tiene cada caja?", 0);
+            if (blisterPorCaja > 0) {
+                // Calcular el total de blísteres
+                var totalBlisteres = cantidadCajas * blisterPorCaja;
+                $("#stock_blister").val(totalBlisteres);
+
+                // Solicitar la cantidad de unidades por blíster
+                solicitarUnidadesPorBlister(totalBlisteres);
+            } else {
+                alert("Debe ingresar un número válido de blísteres por caja.");
+                $("#stock_caja").val(""); // Limpiar el campo de stock de caja
+            }
+        }
+
+        function solicitarUnidadesPorBlister(totalBlisteres) {
+            // Solicitar la cantidad de unidades por blíster
+            var unidadesPorBlister = prompt("¿Cuántas unidades tiene cada blíster?", 0);
+            if (unidadesPorBlister > 0) {
+                // Calcular el total de unidades
+                var totalUnidades = totalBlisteres * unidadesPorBlister;
+                $("#stock_unidad").val(totalUnidades);
+            } else {
+                alert("Debe ingresar un número válido de unidades por blíster.");
+                $("#stock_blister").val(""); // Limpiar el campo de stock de blíster
+                $("#stock_caja").val(""); // Limpiar el campo de stock de caja
+            }
+        }
+
+
+
+        tabladata = $("#tabla").DataTable({
+            responsive: true,
+            ordering: false,
+            "ajax": {
+                url: '@Url.Action("ListarProductos", "Mantenimiento")',
+                type: "GET",
+                dataType: "json"
+            },
+            "columns": [
+                { "data": "nombre" },
+                { "data": "Descripcion" },
+                { "data": "ocategoria.descripcion" },
+                { "data": "oproveedor.nombre" },
+                { "data": "olaboratorio.nombre" },
+                { "data": "stock_caja" },
+                { "data": "stock_blister" },
+                { "data": "stock_unidad" },
+                { "data": "precio_caja" },
+                { "data": "precio_blister" },
+                { "data": "precio_unidad" },
+                {
+                    "data": "estado",
+                    "render": function (valor) {
+                        if (valor) {
+                            return '<span class="badge text-bg-success py-2" style="user-select: none;">Producto Activado 😀</span>'
+                        } else {
+                            return '<span class="badge text-bg-danger py-2" style="user-select: none;">Producto Desactivado 😔</span>'
+                        }
+                    }
+                },
+                {
+                    "defaultContent": '<button type="button" class="btn btn-outline-primary btn-sm btn-editar">Editar &nbsp; <i class="fas fa-pencil-alt"></i></button>' +
+                        '<button type="button" class="btn btn-outline-danger btn-sm ms-2 btn-eliminar">Eliminar &nbsp; <i class="fas fa-trash-alt"></i></button>',
+                    "orderable": false,
+                    "searchable": false
+                }
+            ],
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+            }
+        });
+
+        // Guardar Producto
+        function guardar() {
+            if (!$("#contenedor").valid()) {
+                return;
+            }
+
+            var imgseleccionada = $("#fileproducto")[0].files[0];
+            var Producto = {
+                idproducto: $("#prodid").val(),
+                nombre: $("#txtnombre").val(),
+                Descripcion: $("#txtdescripcion").val(),
+                stock_caja: $("#stock_caja").val(),
+                stock_blister: $("#stock_blister").val(),
+                stock_unidad: $("#stock_unidad").val(),
+                precio_caja: $("#txtprecioCaja").val(),
+                precio_blister: $("#txtprecioBlister").val(),
+                precio_unidad: $("#txtprecioUnidad").val(),
+                ocategoria: {
+                    idcategoria: $("#txtcategoria option:selected").val(),
+                    descripcion: $("#txtcategoria option:selected").text()
+                },
+                oproveedor: {
+                    idproveedor: $("#txtproveedor option:selected").val(),
+                    nombre: $("#txtproveedor option:selected").text()
+                },
+                olaboratorio: {
+                    id: $("#txtlaboratorio option:selected").val(),
+                    nombre: $("#txtlaboratorio option:selected").text()
+                },
+                estado: $("#txtestado").val() == 1 ? true : false
+            };
+
+            var request = new FormData();
+            request.append("objeto", JSON.stringify(Producto));
+            request.append("archivoimg", imgseleccionada);
+
+            jQuery.ajax({
+                url: '@Url.Action("GuardarProductos", "Mantenimiento")',
+                type: "POST",
+                data: request,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    $(".modal-body").LoadingOverlay("hide");
+                    if (Producto.idproducto == 0) {
+                        if (data.idgenerado != 0) {
+                            Producto.idproducto = data.idgenerado;
+                            tabladata.row.add(Producto).draw(false);
+                            $("#abrirmodal").modal("hide");
+                        } else {
+                            $("#mensajeError").text(data.mensaje);
+                            $("#mensajeError").show();
+                        }
+                    } else {
+                        if (data.operacionExitosa) {
+                            tabladata.row(filaseleccionada).data(Producto).draw(false);
+                            filaseleccionada = null;
+                            $("#abrirmodal").modal("hide");
+                        } else {
+                            $("#mensajeError").text(data.mensaje);
+                            $("#mensajeError").show();
+                        }
+                    }
+                },
+                error: function(error) {
+                    $(".modal-body").LoadingOverlay("hide");
+                    $("#mensajeError").text("Error al Guardar los datos");
+                    $("#mensajeError").show();
+                },
+                beforeSend: function() {
+                    $(".modal-body").LoadingOverlay("show", {
+                        imageResezeFactor: 2,
+                        image: "",
+                        fontawesome: "fas fa-spinner",
+                        text: "Cargando ...",
+                        size: 14
+                    })
+                }
+            });
+        }
+
+
+        $("#contenedor").validate({
+            rules: {
+                nombres: {
+                    required: true
+                },
+                descripciones: {
+                    required: true
+                },
+                precioCaja: {
+                    required: true,
+                    number: true
+                },
+                precioBlister: {
+                    required: true,
+                    number: true
+                },
+                precioUnidad: {
+                    required: true,
+                    number: true
+                },
+                stock_caja: {
+                    required: true,
+                    digits: true
+                }
+            },
+            messages: {
+                nombres: "- El campo nombre es obligatorio",
+                descripciones: "- El campo descripción es obligatorio",
+                precioCaja: { required: "- El campo precio de caja es obligatorio", number: "- Debe ser un número válido" },
+                precioBlister: { required: "- El campo precio de blister es obligatorio", number: "- Debe ser un número válido" },
+                precioUnidad: { required: "- El campo precio de unidad es obligatorio", number: "- Debe ser un número válido" },
+                stock_caja: { required: "- El campo stock de caja es obligatorio", digits: "- Debe ser un número entero válido" }
+            },
+            errorElement: "div",
+            errorLabelContainer: ".alert-danger"
+        });
+
+        $(document).ready(function () {
+            // Cargar Proveedores
+            jQuery.ajax({
+                url: '@Url.Action("ListarProveedores", "Mantenimiento")',
+                type: "GET",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": "0", "disabled": "true" }).text("Elige un proveedor...").appendTo("#txtproveedor");
+                    $.each(data.data, function (index, valor) {
+                        $("<option>").attr({ "value": valor.idproveedor }).text(valor.nombre).appendTo("#txtproveedor");
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            // Cargar Categorías
+            jQuery.ajax({
+                url: '@Url.Action("ListarCategorias", "Mantenimiento")',
+                type: "GET",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": "0", "disabled": "true" }).text("Elige una categoría...").appendTo("#txtcategoria");
+                    $.each(data.data, function (index, valor) {
+                        $("<option>").attr({ "value": valor.idcategoria }).text(valor.descripcion).appendTo("#txtcategoria");
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            // Cargar Laboratorios
+            jQuery.ajax({
+                url: '@Url.Action("ListarLaboratorios", "Mantenimiento")',
+                type: "GET",
+                data: null,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    $("<option>").attr({ "value": "0", "disabled": "true" }).text("Elige un laboratorio...").appendTo("#txtlaboratorio");
+                    $.each(data.data, function (index, valor) {
+                        $("<option>").attr({ "value": valor.id }).text(valor.nombre).appendTo("#txtlaboratorio");
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+
+
+    </script>
+}
