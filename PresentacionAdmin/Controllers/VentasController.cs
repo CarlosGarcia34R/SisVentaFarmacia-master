@@ -1,122 +1,44 @@
-﻿using System.Web.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using Entidad;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using Negocios;
 using System.Linq;
+using System.Web.Mvc;
+using Entidad;
 using Datos;
+using Negocios;
 
 namespace PresentacionAdmin.Controllers
 {
     public class VentasController : Controller
     {
         private readonly N_Ventas _nVentas = new N_Ventas();
-        private readonly N_Categorias _nCategorias = new N_Categorias();
-        private readonly N_Proveedores _nMarcas = new N_Proveedores();
+        private readonly N_productos _nProductos = new N_productos();
+        private readonly N_Clientes _nClientes = new N_Clientes();
         private readonly N_EmpresaFiscal _nEmpresaFiscal = new N_EmpresaFiscal();
 
-        // GET: /Ventas/Ventas
-        public ActionResult Ventas()
+        // GET: /Ventas/Index
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        // GET: /Ventas/ListarVentas
+        [HttpGet]
+        public JsonResult ListarVentas(DateTime? fechaInicio, DateTime? fechaFin, string idTransaccion)
         {
             var ventas = _nVentas.Listar();
-            // Retorna la vista "Ventas.cshtml" (debe existir en Views/Ventas)
-            return View(ventas);
-        }
 
-        [HttpGet]
-        public JsonResult ListarProductosDisponibles()
-        {
-            List<Producto> productos = new N_productos().Listar();
-            return Json(new { data = productos }, JsonRequestBehavior.AllowGet);
-        }
+            if (fechaInicio.HasValue)
+                ventas = ventas.Where(v => v.FechaVenta.Date >= fechaInicio.Value.Date).ToList();
+            if (fechaFin.HasValue)
+                ventas = ventas.Where(v => v.FechaVenta.Date <= fechaFin.Value.Date).ToList();
+            if (!string.IsNullOrWhiteSpace(idTransaccion))
+                ventas = ventas.Where(v => v.IdTransaccion.Contains(idTransaccion)).ToList();
 
-        [HttpGet]
-        public JsonResult ListarCategorias()
-        {
-            List<Categoria> categorias = _nCategorias.Listar();
-            return Json(new { data = categorias }, JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpGet]
-        public JsonResult ListarMarcas()
-        {
-            List<Proveedor> marcas = _nMarcas.Listar();
-            return Json(new { data = marcas }, JsonRequestBehavior.AllowGet);
-        }
-
-        // VentasController.cs
-        public ActionResult RegistrarVenta()
-        {
-            // Cargar listas para los combos
-            ViewBag.ListaProductos = new N_productos().Listar();            // Debe devolver una lista de productos
-            ViewBag.ListaLaboratorios = new N_Laboratorio().Listar();         // Debe devolver una lista de laboratorios
-            ViewBag.ListaDroguerias = new N_Proveedores().Listar();             // Debe devolver una lista de droguerías
-
-            // Retorna un objeto Venta vacío (la clase Entidad.Venta ya se ha extendido para incluir Detalles)
-            return View(new Venta());
-        }
-
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult RegistrarVenta(Venta venta, FormCollection form)
-        {
-            // Se asume que el binding de Detalles se realiza correctamente gracias a los índices en el nombre de los inputs
-
-            // Ejemplo: recalcular totales a partir de los detalles
-            int totalProductos = 0;
-            decimal montoTotal = 0m;
-            if (venta.Detalles != null)
-            {
-                foreach (var detalle in venta.Detalles)
-                {
-                    totalProductos += detalle.Cantidad;
-                    montoTotal += detalle.Precio * detalle.Cantidad;
-                }
-            }
-            venta.TotalProducto = totalProductos;
-            venta.MontoTotal = montoTotal;
-
-            // Registrar la venta
-            string mensaje;
-            bool operacionExitosa = new N_Ventas().RegistrarVenta(venta, venta.Detalles, out mensaje);
-
-            if (operacionExitosa)
-            {
-                // Redirige a la acción que genera el PDF usando el id de la venta registrada.
-                // Puedes almacenar el id generado (por ejemplo, en TempData) o modificar el método RegistrarVenta para devolverlo.
-                TempData["Exito"] = "Venta registrada correctamente";
-                // Supongamos que la venta ya contiene el IdVenta generado; de lo contrario, debes adaptarlo.
-                return RedirectToAction("GenerarPDF", new { idVenta = venta.IdVenta });
-            }
-            else
-            {
-                ModelState.AddModelError("", mensaje);
-                // Recargar las listas en caso de error
-                ViewBag.ListaProductos = new N_productos().Listar();
-                ViewBag.ListaLaboratorios = new N_Laboratorio().Listar();
-                ViewBag.ListaDroguerias = new N_Proveedores().Listar();
-                return View(venta);
-            }
-        }
-
-        public ActionResult ListadoVentas()
-        {
-            var ventas = _nVentas.Listar();
-            return View(ventas); // Vista: Views/Ventas/ListadoVentas.cshtml
-        }
-
-
-        [HttpGet]
-        public JsonResult ListarVentas()
-        {
-            List<Venta> ventas = _nVentas.Listar();
             return Json(new { data = ventas }, JsonRequestBehavior.AllowGet);
         }
 
-        // JSON para los cards de resumen
+        // GET: /Ventas/ResumenVentas
+        [HttpGet]
         public JsonResult ResumenVentas()
         {
             var ventas = _nVentas.Listar();
@@ -126,102 +48,144 @@ namespace PresentacionAdmin.Controllers
             return Json(new { totalVentas, totalProductos, totalClientes }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: /Ventas/RegistrarVentaConsumidor
-        public ActionResult RegistrarVentaConsumidor(int? idCliente, string contacto, string idDistrito,
-                                                     string telefono, string direccion, string idTransaccion)
+        // GET: /Ventas/Create
+        [HttpGet]
+        public ActionResult Create()
         {
-            var venta = new Venta
-            {
-                TipoFactura = 'F',
-                IdCliente = idCliente ?? 0,
-                Contacto = contacto,
-                IdDistrito = idDistrito,
-                Telefono = telefono,
-                Direccion = direccion,
-                IdTransaccion = idTransaccion
-            };
-            ViewBag.ListaProductos = new N_productos().Listar();
-            ViewBag.ListaLaboratorios = new N_Laboratorio().Listar();
-            ViewBag.ListaDroguerias = new N_Proveedores().Listar();
-            return View("RegistrarVentaConsumidor", venta);
+            // Listas para el formulario
+            ViewBag.ListaProductos = _nProductos.Listar()
+                .Select(p => new
+                {
+                    IdProducto = p.IdProducto,
+                    Nombre = p.Nombre,
+                    Precio = p.Precio,
+                    Iva = p.Iva,
+                    CreditoFiscal = p.CreditoFiscal
+                }).ToList();
+
+            ViewBag.ListaClientes = _nClientes.Listar()
+                .Select(c => new
+                {
+                    IdCliente = c.IdCliente,
+                    NombreCompleto = c.Nombres + " " + c.Apellidos
+                }).ToList();
+
+            return View(new Venta());
         }
 
-        // POST: /Ventas/RegistrarVentaConsumidor
+        // POST: /Ventas/Create
         [HttpPost]
-        public ActionResult RegistrarVentaConsumidor(Venta venta, FormCollection form)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Venta venta, List<DetalleVenta> detalleItems)
         {
-            venta.TipoFactura = 'F';
-            venta.TotalProducto = venta.Detalles.Sum(d => d.Cantidad);
-            venta.MontoTotal = venta.Detalles.Sum(d => d.Total);
-
-            if (_nVentas.RegistrarVenta(venta, venta.Detalles, out string msg))
-                return RedirectToAction("GenerarPDF", new { idVenta = venta.IdVenta });
-
-            ModelState.AddModelError("", msg);
-            ViewBag.ListaProductos = new N_productos().Listar();
-            ViewBag.ListaLaboratorios = new N_Laboratorio().Listar();
-            ViewBag.ListaDroguerias = new N_Proveedores().Listar();
-            return View("RegistrarVentaConsumidor", venta);
-        }
-
-        // GET: /Ventas/RegistrarVentaCredito
-        public ActionResult RegistrarVentaCredito(int? idCliente, string contacto, string idDistrito,
-                                                  string telefono, string direccion, string idTransaccion)
-        {
-            var venta = new Venta
+            // Validación mínima
+            if (detalleItems == null || !detalleItems.Any())
             {
-                TipoFactura = 'C',
-                IdCliente = idCliente ?? 0,
-                Contacto = contacto,
-                IdDistrito = idDistrito,
-                Telefono = telefono,
-                Direccion = direccion,
-                IdTransaccion = idTransaccion
-            };
-            ViewBag.ListaProductos = new N_productos().Listar();
-            ViewBag.ListaLaboratorios = new N_Laboratorio().Listar();
-            ViewBag.ListaDroguerias = new N_Proveedores().Listar();
-            return View("RegistrarVentaCredito", venta);
+                ModelState.AddModelError("", "Debe agregar al menos un producto al detalle.");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                // Recargar listas si hay error
+                ViewBag.ListaProductos = _nProductos.Listar()
+                    .Select(p => new
+                    {
+                        IdProducto = p.IdProducto,
+                        Nombre = p.Nombre,
+                        Precio = p.Precio,
+                        Iva = p.Iva,
+                        CreditoFiscal = p.CreditoFiscal
+                    }).ToList();
+
+                ViewBag.ListaClientes = _nClientes.Listar()
+                    .Select(c => new
+                    {
+                        IdCliente = c.IdCliente,
+                        NombreCompleto = c.Nombres + " " + c.Apellidos
+                    }).ToList();
+
+                return View(venta);
+            }
+
+            // Calcular totales
+            venta.TotalProducto = detalleItems.Sum(d => d.Cantidad);
+            venta.MontoTotal = detalleItems.Sum(d => d.Total);
+
+            // Registrar cabecera y detalles
+            string mensaje;
+            int idVentaGenerado = _nVentas.RegistrarVenta(venta, detalleItems, out mensaje);
+
+            if (idVentaGenerado <= 0)
+            {
+                ModelState.AddModelError("", mensaje);
+                ViewBag.ListaProductos = _nProductos.Listar()
+                    .Select(p => new
+                    {
+                        IdProducto = p.IdProducto,
+                        Nombre = p.Nombre,
+                        Precio = p.Precio,
+                        Iva = p.Iva,
+                        CreditoFiscal = p.CreditoFiscal
+                    }).ToList();
+
+                ViewBag.ListaClientes = _nClientes.Listar()
+                    .Select(c => new
+                    {
+                        IdCliente = c.IdCliente,
+                        NombreCompleto = c.Nombres + " " + c.Apellidos
+                    }).ToList();
+
+                return View(venta);
+            }
+
+            // Obtener venta completa (con datos de EmpresaFiscal y Cliente)
+            var ventaCompleta = _nVentas.ObtenerVentaPorId(idVentaGenerado);
+            var detalles = _nVentas.ObtenerDetallesPorVentaId(idVentaGenerado);
+
+            // Generar y guardar JSON (DTE)
+            var dteGen = new D_DteGenerator();
+            string jsonDte = dteGen.GenerarYGuardarJson(ventaCompleta);
+
+            // Generar PDF en memoria
+            var pdfGen = new D_PdfGenerator();
+            bool includeCliente = ventaCompleta.TipoFactura == 'C';
+            byte[] pdfBytes = pdfGen.GenerarPdfFactura(ventaCompleta, detalles, includeCliente);
+
+            // Enviar correo al cliente con PDF + JSON
+            try
+            {
+                var emailSender = new D_EmailSender();
+                string asunto = $"Factura {ventaCompleta.SerieFactura}-{ventaCompleta.NumeroFactura:000000}";
+                string cuerpoHtml = $@"
+                    <p>Estimado(a) {ventaCompleta.NombreCliente},</p>
+                    <p>Adjunto su factura electrónica No. <strong>{ventaCompleta.SerieFactura}-{ventaCompleta.NumeroFactura:000000}</strong>.</p>
+                    <p>Código de Generación: <strong>{ventaCompleta.CodigoGeneracion}</strong></p>
+                    <p>Fecha Emisión: <strong>{ventaCompleta.FechaEmisionDte:dd/MM/yyyy HH:mm:ss}</strong></p>
+                    <p>Monto Total: <strong>USD {ventaCompleta.MontoTotal:F2}</strong></p>
+                    <p>¡Gracias por su preferencia!</p>";
+
+                emailSender.EnviarCorreo(
+                    destinatario: ventaCompleta.Contacto,
+                    asunto: asunto,
+                    cuerpoHtml: cuerpoHtml,
+                    pdfBytes: pdfBytes,
+                    nombrePdf: $"Factura_{ventaCompleta.SerieFactura}-{ventaCompleta.NumeroFactura:000000}.pdf",
+                    jsonContenido: jsonDte,
+                    nombreJson: $"Factura_{ventaCompleta.SerieFactura}-{ventaCompleta.NumeroFactura:000000}.json"
+                );
+            }
+            catch (Exception ex)
+            {
+                // Si falla el correo, podemos registrar el error y continuar
+                // o mostrar un mensaje, según necesites:
+                // ModelState.AddModelError("", "La venta se guardó, pero no fue posible enviar el correo: " + ex.Message);
+            }
+
+            TempData["Success"] = "Venta registrada y factura enviada correctamente.";
+            return RedirectToAction("Index");
         }
 
-        // POST: /Ventas/RegistrarVentaCredito
-        [HttpPost]
-        public ActionResult RegistrarVentaCredito(Venta venta, FormCollection form)
-        {
-            venta.TipoFactura = 'C';
-            venta.TotalProducto = venta.Detalles.Sum(d => d.Cantidad);
-            venta.MontoTotal = venta.Detalles.Sum(d => d.Total);
-
-            // Garantizar que no sea null
-            if (string.IsNullOrWhiteSpace(venta.Contacto))
-                venta.Contacto = "N/A";
-
-            // Garantizar que no sea null
-            if (string.IsNullOrWhiteSpace(venta.IdDistrito))
-                venta.IdDistrito = "N/A";
-
-            // Garantizar que no sea null
-            if (string.IsNullOrWhiteSpace(venta.Telefono))
-                venta.Telefono = "969625157";
-
-            // Garantizar que no sea null
-            if (string.IsNullOrWhiteSpace(venta.Direccion))
-                venta.Direccion = "N/A";
-
-                                // Garantizar que no sea null
-            if (string.IsNullOrWhiteSpace(venta.IdTransaccion))
-                venta.IdTransaccion = "N/A";
-
-            if (_nVentas.RegistrarVenta(venta, venta.Detalles, out string msg))
-                return RedirectToAction("GenerarPDFCredito", new { idVenta = venta.IdVenta });
-
-            ModelState.AddModelError("", msg);
-            ViewBag.ListaProductos = new N_productos().Listar();
-            ViewBag.ListaLaboratorios = new N_Laboratorio().Listar();
-            ViewBag.ListaDroguerias = new N_Proveedores().Listar();
-            return View("RegistrarVentaCredito", venta);
-        }
-        // GET: /Ventas/GenerarPDF/{idVenta}
+        // GET: /Ventas/GenerarPDF/5
         [HttpGet]
         public FileResult GenerarPDF(int idVenta)
         {
@@ -229,22 +193,14 @@ namespace PresentacionAdmin.Controllers
             var detalles = _nVentas.ObtenerDetallesPorVentaId(idVenta);
             InyectarConfigFiscal(venta);
 
-            return CrearPdf(venta, detalles, "Factura de Venta – Consumidor Final");
+            var pdfGen = new D_PdfGenerator();
+            bool includeCliente = (venta.TipoFactura == 'C');
+            byte[] bytes = pdfGen.GenerarPdfFactura(venta, detalles, includeCliente);
+            string fileName = $"Factura_{venta.SerieFactura}-{venta.NumeroFactura:000000}.pdf";
+            return File(bytes, "application/pdf", fileName);
         }
 
-        // GET: /Ventas/GenerarPDFCredito/{idVenta}
-        [HttpGet]
-        public FileResult GenerarPDFCredito(int idVenta)
-        {
-            var venta = _nVentas.ObtenerVentaPorId(idVenta);
-            var detalles = _nVentas.ObtenerDetallesPorVentaId(idVenta);
-            InyectarConfigFiscal(venta);
-
-            // Añado datos específicos de cliente y vencimiento en el encabezado
-            return CrearPdf(venta, detalles, "Factura Crédito Fiscal", includeCliente: true);
-        }
-
-        // Método auxiliar para inyectar datos de EmpresaFiscal
+        // Método auxiliar para inyectar datos fiscales antes de generar PDF
         private void InyectarConfigFiscal(Venta venta)
         {
             var cfg = _nEmpresaFiscal.Obtener();
@@ -257,78 +213,5 @@ namespace PresentacionAdmin.Controllers
             venta.DireccionSucursal = cfg.DireccionSucursal;
             venta.TelefonoSucursal = cfg.TelefonoSucursal;
         }
-
-        // Método auxiliar que centraliza la creación del PDF
-        private FileResult CrearPdf(Venta venta, List<DetalleVenta> detalles,string titulo, bool includeCliente = false)
-        {
-            using (var ms = new MemoryStream())
-            {
-                var doc = new Document(new Rectangle(227f, 800f), 10, 10, 10, 10);
-                var writer = PdfWriter.GetInstance(doc, ms);
-                doc.Open();
-
-                var normal = FontFactory.GetFont(FontFactory.HELVETICA, 8);
-                var bold = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8);
-
-                // Encabezado fiscal
-                doc.Add(new Paragraph("Farmacia Santa Isabel", bold));
-                doc.Add(new Paragraph($"{titulo}", bold));
-                doc.Add(new Paragraph($"Factura: {venta.SerieFactura}-{venta.NumeroFactura:000000}", bold));
-
-                if (includeCliente)
-                {
-                    doc.Add(new Paragraph($"Cliente: {venta.NombreCliente}", normal));
-                    doc.Add(new Paragraph($"NIT: {venta.NITCliente}", normal));
-                    doc.Add(new Paragraph($"Dirección: {venta.DireccionCliente}", normal));
-                    if (venta.FechaVencimiento != DateTime.MinValue)
-                        doc.Add(new Paragraph($"Vence: {venta.FechaVencimiento:dd/MM/yyyy}", normal));
-                    doc.Add(new Paragraph(" ", normal));
-                }
-
-                doc.Add(new Paragraph($"NRC: {venta.NRC}   NIT Empresa: {venta.NIT}", normal));
-                doc.Add(new Paragraph($"Resolución: {venta.NumeroResolucion}", normal));
-                doc.Add(new Paragraph($"CAI: {venta.CAI}", normal));
-                doc.Add(new Paragraph($"Fecha Res.: {venta.FechaResolucion:dd/MM/yyyy}   Válido hasta: {venta.FechaLimiteImpresion:dd/MM/yyyy}", normal));
-                doc.Add(new Paragraph($"Sucursal: {venta.DireccionSucursal}   Tel: {venta.TelefonoSucursal}", normal));
-                doc.Add(new Paragraph(" ", normal));
-
-                // Detalles
-                doc.Add(new Paragraph($"Fecha: {venta.FechaVenta:dd/MM/yyyy HH:mm:ss}", normal));
-                var table = new PdfPTable(4) { WidthPercentage = 100 };
-                table.SetWidths(new float[] { 40f, 15f, 20f, 25f });
-                table.AddCell(new PdfPCell(new Phrase("Producto", bold)));
-                table.AddCell(new PdfPCell(new Phrase("Cant", bold)));
-                table.AddCell(new PdfPCell(new Phrase("P.Unit", bold)));
-                table.AddCell(new PdfPCell(new Phrase("Total", bold)));
-
-                foreach (var d in detalles)
-                {
-                    table.AddCell(new PdfPCell(new Phrase(d.NombreProducto, normal)));
-                    table.AddCell(new PdfPCell(new Phrase(d.Cantidad.ToString(), normal)) { HorizontalAlignment = Element.ALIGN_RIGHT });
-                    table.AddCell(new PdfPCell(new Phrase(d.Precio.ToString("F2"), normal)) { HorizontalAlignment = Element.ALIGN_RIGHT });
-                    table.AddCell(new PdfPCell(new Phrase(d.Total.ToString("F2"), normal)) { HorizontalAlignment = Element.ALIGN_RIGHT });
-                }
-                doc.Add(table);
-
-                // Totales
-                var sub = detalles.Sum(d => d.Precio * d.Cantidad);
-                var iva = detalles.Sum(d => d.Iva);
-                var tot = detalles.Sum(d => d.Total);
-
-                doc.Add(new Paragraph($"Subtotal: {sub:F2}", normal));
-                doc.Add(new Paragraph($"IVA: {iva:F2}", normal));
-                doc.Add(new Paragraph($"Total: {tot:F2}", normal));
-                doc.Add(new Paragraph("¡Gracias por su compra!", normal));
-
-                doc.Close();
-                writer.Close();
-
-                return File(ms.ToArray(), "application/pdf", $"{titulo}.pdf");
-            }
-        }
-
-
-
-
     }
 }

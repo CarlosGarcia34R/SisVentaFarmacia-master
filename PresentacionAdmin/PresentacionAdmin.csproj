@@ -964,6 +964,8 @@
     <Content Include="Views\Ventas\ListadoVentas.cshtml" />
     <Content Include="Views\Ventas\RegistrarVentaCredito.cshtml" />
     <Content Include="Views\Ventas\PRUEBA.cshtml" />
+    <Content Include="Views\Ventas\Create.cshtml" />
+    <Content Include="Views\Ventas\_VentaForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

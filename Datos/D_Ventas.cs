@@ -8,43 +8,46 @@ namespace Datos
 {
     public class D_Ventas
     {
-        public int RegistrarVenta(Venta venta, List<DetalleVenta> detalles, out string Mensaje)
+        /// <summary>
+        /// Inserta la venta (cabecera + detalles) y devuelve el Id generado. 
+        /// </summary>
+        public int RegistrarVenta(Venta venta, List<DetalleVenta> detalles, out string mensaje)
         {
-            int idautogenerado = 0;
-            Mensaje = string.Empty;
+            int idVentaGenerado = 0;
+            mensaje = string.Empty;
 
-            using (var oconexion = new SqlConnection(Conexion.cndb))
+            using (var conn = new SqlConnection(Conexion.cndb))
             {
-                oconexion.Open();
-                using (var transaction = oconexion.BeginTransaction())
+                conn.Open();
+                using (var tran = conn.BeginTransaction())
                 {
                     try
                     {
-                        // 1. Serie según tipo de factura
-                        string serie = venta.TipoFactura == 'C' ? "C000" : "F000";
-                        venta.SerieFactura = serie;
+                        // 1) Determinar serie y número de factura
+                        venta.SerieFactura = venta.TipoFactura == 'C' ? "C000" : "F000";
 
-                        // 2. Último número para la serie
-                        int ultimoNumero;
+                        int ultimoNum;
                         using (var cmdSeq = new SqlCommand(
-                                "SELECT ISNULL(MAX(numerofactura), 0) FROM ventas WHERE seriefactura = @serie",
-                                oconexion, transaction))
+                            "SELECT ISNULL(MAX(numerofactura), 0) FROM ventas WHERE seriefactura = @serie",
+                            conn, tran))
                         {
-                            cmdSeq.Parameters.AddWithValue("@serie", serie);
-                            ultimoNumero = Convert.ToInt32(cmdSeq.ExecuteScalar());
+                            cmdSeq.Parameters.AddWithValue("@serie", venta.SerieFactura);
+                            ultimoNum = Convert.ToInt32(cmdSeq.ExecuteScalar());
                         }
-                        venta.NumeroFactura = ultimoNumero + 1;
+                        venta.NumeroFactura = ultimoNum + 1;
 
-                        // 3. Insertar cabecera de venta con todos los campos nuevos
-                        var sql = @"
+                        // 2) Insertar cabecera de venta (incluyendo nuevos campos de facturación)
+                        var sqlCabecera = @"
                         INSERT INTO ventas (
                             seriefactura,
                             numerofactura,
                             tipoFactura,
                             idcliente,
+                            tipoDocumentoCliente,
+                            numeroDocumentoCliente,
                             nombreCliente,
-                            nitCliente,
                             direccionCliente,
+                            telefonoCliente,
                             totalproducto,
                             montototal,
                             contacto,
@@ -54,6 +57,11 @@ namespace Datos
                             idtransaccion,
                             plazoCreditoDias,
                             fechaVencimiento,
+                            fechaEmisionDte,
+                            codigoGeneracion,
+                            jsonDte,
+                            estadoFactura,
+                            IdEmpresaFiscal,
                             fechaventa
                         )
                         VALUES (
@@ -61,9 +69,11 @@ namespace Datos
                             @NumeroFactura,
                             @TipoFactura,
                             @IdCliente,
+                            @TipoDocumentoCliente,
+                            @NumeroDocumentoCliente,
                             @NombreCliente,
-                            @NITCliente,
                             @DireccionCliente,
+                            @TelefonoCliente,
                             @TotalProducto,
                             @MontoTotal,
                             @Contacto,
@@ -73,104 +83,203 @@ namespace Datos
                             @IdTransaccion,
                             @PlazoCreditoDias,
                             @FechaVencimiento,
+                            @FechaEmisionDte,
+                            @CodigoGeneracion,
+                            @JsonDte,
+                            @EstadoFactura,
+                            @IdEmpresaFiscal,
                             GETDATE()
                         );
                         SELECT SCOPE_IDENTITY();";
 
-                        using (var cmdVenta = new SqlCommand(sql, oconexion, transaction))
+                        using (var cmdCab = new SqlCommand(sqlCabecera, conn, tran))
                         {
-                            // dentro de using(var cmdVenta = new SqlCommand(sql, oconexion, transaction)):
+                            cmdCab.Parameters.AddWithValue("@SerieFactura", venta.SerieFactura);
+                            cmdCab.Parameters.AddWithValue("@NumeroFactura", venta.NumeroFactura);
+                            cmdCab.Parameters.AddWithValue("@TipoFactura", venta.TipoFactura);
+                            cmdCab.Parameters.AddWithValue("@IdCliente", venta.IdCliente);
 
-                            cmdVenta.Parameters.AddWithValue("@SerieFactura", venta.SerieFactura);
-                            cmdVenta.Parameters.AddWithValue("@NumeroFactura", venta.NumeroFactura);
-                            cmdVenta.Parameters.AddWithValue("@TipoFactura", venta.TipoFactura);
-                            cmdVenta.Parameters.AddWithValue("@IdCliente", venta.IdCliente);
+                            // Datos del cliente
+                            cmdCab.Parameters.AddWithValue("@TipoDocumentoCliente", venta.TipoDocumentoCliente ?? (object)DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@NumeroDocumentoCliente", venta.NumeroDocumentoCliente ?? (object)DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@NombreCliente", venta.NombreCliente ?? (object)DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@DireccionCliente", venta.DireccionCliente ?? (object)DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@TelefonoCliente", venta.TelefonoCliente ?? (object)DBNull.Value);
 
-                            // === aquí ===
-                            cmdVenta.Parameters.AddWithValue("@NombreCliente", (object)venta.NombreCliente ?? DBNull.Value);
-                            cmdVenta.Parameters.AddWithValue("@NITCliente", (object)venta.NITCliente ?? DBNull.Value);
-                            cmdVenta.Parameters.AddWithValue("@DireccionCliente", (object)venta.DireccionCliente ?? DBNull.Value);
-                            cmdVenta.Parameters.AddWithValue("@PlazoCreditoDias", venta.PlazoCreditoDias);
-                            // Calcula el valor a enviar: o la fecha (si no es MinValue) o DBNull.Value
-                            object valorFechaVencimiento = venta.FechaVencimiento != DateTime.MinValue
-                                ? (object)venta.FechaVencimiento
-                                : DBNull.Value;
+                            // Totales
+                            cmdCab.Parameters.AddWithValue("@TotalProducto", venta.TotalProducto);
+                            cmdCab.Parameters.AddWithValue("@MontoTotal", venta.MontoTotal);
 
-                            // Añade el parámetro
-                            cmdVenta.Parameters.AddWithValue("@FechaVencimiento", valorFechaVencimiento);
+                            // Contacto
+                            cmdCab.Parameters.AddWithValue("@Contacto",
+                                string.IsNullOrWhiteSpace(venta.Contacto) ? (object)DBNull.Value : venta.Contacto);
 
-                            // === fin ===
+                            cmdCab.Parameters.AddWithValue("@IdDistrito",
+                                string.IsNullOrWhiteSpace(venta.IdDistrito) ? (object)DBNull.Value : venta.IdDistrito);
 
-                            cmdVenta.Parameters.AddWithValue("@TotalProducto", venta.TotalProducto);
-                            cmdVenta.Parameters.AddWithValue("@MontoTotal", venta.MontoTotal);
-                            // En el cmdVenta.Parameters…
-                            cmdVenta.Parameters.AddWithValue(
-                                "@Contacto",
-                                string.IsNullOrWhiteSpace(venta.Contacto)
-                                  ? (object)DBNull.Value
-                                  : venta.Contacto
-                            );
+                            cmdCab.Parameters.AddWithValue("@Telefono",
+                                string.IsNullOrWhiteSpace(venta.Telefono) ? (object)DBNull.Value : venta.Telefono);
 
-                            cmdVenta.Parameters.AddWithValue("@IdDistrito", string.IsNullOrWhiteSpace(venta.IdDistrito) ? (object)DBNull.Value : venta.IdDistrito);
-                            cmdVenta.Parameters.AddWithValue("@Telefono", string.IsNullOrWhiteSpace(venta.Telefono) ? (object)DBNull.Value : venta.Telefono);
-                            cmdVenta.Parameters.AddWithValue("@Direccion", string.IsNullOrWhiteSpace(venta.Direccion)?(object)DBNull.Value : venta.Direccion );
-                            cmdVenta.Parameters.AddWithValue("@IdTransaccion", string.IsNullOrWhiteSpace(venta.IdTransaccion)?(object)DBNull.Value : venta.IdTransaccion);
+                            cmdCab.Parameters.AddWithValue("@Direccion",
+                                string.IsNullOrWhiteSpace(venta.Direccion) ? (object)DBNull.Value : venta.Direccion);
 
-                            idautogenerado = Convert.ToInt32(cmdVenta.ExecuteScalar());
+                            cmdCab.Parameters.AddWithValue("@IdTransaccion",
+                                string.IsNullOrWhiteSpace(venta.IdTransaccion) ? (object)DBNull.Value : venta.IdTransaccion);
+
+                            // Crédito
+                            cmdCab.Parameters.AddWithValue("@PlazoCreditoDias", venta.PlazoCreditoDias);
+                            cmdCab.Parameters.AddWithValue("@FechaVencimiento",
+                                venta.FechaVencimiento != DateTime.MinValue
+                                    ? (object)venta.FechaVencimiento
+                                    : DBNull.Value);
+
+                            // Campos de facturación electrónica (temporales: se actualizarán luego)
+                            cmdCab.Parameters.AddWithValue("@FechaEmisionDte", DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@CodigoGeneracion", DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@JsonDte", DBNull.Value);
+                            cmdCab.Parameters.AddWithValue("@EstadoFactura", 0);
+
+                            // FK a EmpresaFiscal (asumimos siempre Id=1)
+                            cmdCab.Parameters.AddWithValue("@IdEmpresaFiscal", venta.IdEmpresaFiscal > 0
+                                                                                         ? (object)venta.IdEmpresaFiscal
+                                                                                         : 1);
+
+                            // Ejecutar insert
+                            idVentaGenerado = Convert.ToInt32(cmdCab.ExecuteScalar());
                         }
 
-                        // 4. Detalles
+                        // 3) Insertar detalles
                         foreach (var det in detalles)
                         {
                             var sqlDet = @"
                             INSERT INTO detallesVentas (
-                                idventa, idproducto, cantidad, precio, subtotal, iva, total, credito_fiscal
+                                idventa, idproducto, cantidad, precio, ventaGravada, montoDescuento, iva, total, credito_fiscal
                             )
                             VALUES (
-                                @IdVenta, @IdProducto, @Cantidad, @Precio, @Subtotal, @Iva, @Total, @CreditoFiscal
+                                @IdVenta, @IdProducto, @Cantidad, @Precio, @VentaGravada, @MontoDescuento, @Iva, @Total, @CreditoFiscal
                             );";
 
-                            using (var cmdDet = new SqlCommand(sqlDet, oconexion, transaction))
+                            using (var cmdDet = new SqlCommand(sqlDet, conn, tran))
                             {
-                                decimal subtotal = det.Precio * det.Cantidad;
-                                cmdDet.Parameters.AddWithValue("@IdVenta", idautogenerado);
+                                // Calcular “ventaGravada” = precio * cantidad – montoDescuento
+                                decimal ventaGravada = (det.Precio * det.Cantidad) - det.MontoDescuento;
+                                decimal montoDescuento = det.MontoDescuento;
+                                decimal ivaPorItem = det.Iva; // ya viene calculado en el DTO
+                                decimal totalLinea = ventaGravada + ivaPorItem;
+
+                                cmdDet.Parameters.AddWithValue("@IdVenta", idVentaGenerado);
                                 cmdDet.Parameters.AddWithValue("@IdProducto", det.IdProducto);
                                 cmdDet.Parameters.AddWithValue("@Cantidad", det.Cantidad);
                                 cmdDet.Parameters.AddWithValue("@Precio", det.Precio);
-                                cmdDet.Parameters.AddWithValue("@Subtotal", subtotal);
-                                cmdDet.Parameters.AddWithValue("@Iva", det.Iva);
-                                cmdDet.Parameters.AddWithValue("@Total", det.Total);
+                                cmdDet.Parameters.AddWithValue("@VentaGravada", ventaGravada);
+                                cmdDet.Parameters.AddWithValue("@MontoDescuento", montoDescuento);
+                                cmdDet.Parameters.AddWithValue("@Iva", ivaPorItem);
+                                cmdDet.Parameters.AddWithValue("@Total", totalLinea);
                                 cmdDet.Parameters.AddWithValue("@CreditoFiscal", det.CreditoFiscal);
 
                                 cmdDet.ExecuteNonQuery();
                             }
                         }
 
-                        transaction.Commit();
-                        Mensaje = "Venta registrada con éxito";
+                        tran.Commit();
+                        mensaje = "VENTA REGISTRADA CON ÉXITO";
+                        return idVentaGenerado;
                     }
                     catch (Exception ex)
                     {
-                        transaction.Rollback();
-                        idautogenerado = 0;
-                        Mensaje = $"Error al registrar la venta: {ex.Message}";
+                        tran.Rollback();
+                        mensaje = $"ERROR AL REGISTRAR VENTA: {ex.Message}";
+                        return 0;
                     }
                 }
             }
-
-            return idautogenerado;
         }
 
+        /// <summary>
+        /// Actualiza los campos de facturación (fechaEmisionDte, codigoGeneracion, jsonDte y estadoFactura) 
+        /// una vez que se ha generado el JSON externamente.
+        /// </summary>
+        public void ActualizarFacturaElectronica(int idVenta,
+                                                 string codigoGeneracion,
+                                                 string jsonDte,
+                                                 byte estadoFactura)
+        {
+            var sql = @"
+                UPDATE ventas
+                SET 
+                    fechaEmisionDte  = GETDATE(),
+                    codigoGeneracion = @CodigoGeneracion,
+                    jsonDte          = @JsonDte,
+                    estadoFactura    = @EstadoFactura
+                WHERE idventa = @IdVenta;";
+
+            using (var conn = new SqlConnection(Conexion.cndb))
+            using (var cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@CodigoGeneracion", codigoGeneracion);
+                cmd.Parameters.AddWithValue("@JsonDte", jsonDte);
+                cmd.Parameters.AddWithValue("@EstadoFactura", estadoFactura);
+                cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /// <summary>
+        /// Devuelve un objeto Venta completo (cabecera + empresa fiscal) para armar JSON/PDF.
+        /// </summary>
         public Venta ObtenerVentaPorId(int idVenta)
         {
             Venta venta = null;
 
-            var sql = "SELECT * FROM ventas WHERE idventa = @IdVenta";
-            using (var cn = new SqlConnection(Conexion.cndb))
-            using (var cmd = new SqlCommand(sql, cn))
+            const string sql = @"
+                SELECT 
+                    v.idventa,
+                    v.seriefactura,
+                    v.numerofactura,
+                    v.tipoFactura,
+                    v.idcliente,
+                    c.nombres            AS NombreCliente,
+                    c.apellidos          AS ApellidoCliente,
+                    c.tipoDocumento      AS TipoDocumentoCliente,
+                    c.numeroDocumento    AS NumeroDocumentoCliente,
+                    c.direccionCliente   AS DireccionCliente,
+                    c.telefonoCliente    AS TelefonoCliente,
+                    v.totalproducto,
+                    v.montototal,
+                    v.contacto,
+                    v.iddistrito,
+                    v.telefono           AS Telefono,
+                    v.direccion          AS Direccion,
+                    v.idtransaccion,
+                    v.plazoCreditoDias,
+                    v.fechaVencimiento,
+                    v.fechaventa,
+                    v.codigoGeneracion,
+                    v.jsonDte,
+                    v.estadoFactura,
+                    ef.Nombre            AS EmpresaNombre,
+                    ef.NRC               AS EmpresaNRC,
+                    ef.NIT               AS EmpresaNIT,
+                    ef.NumeroResolucion  AS EmpresaNumeroResolucion,
+                    ef.CAI               AS EmpresaCAI,
+                    ef.FechaResolucion   AS EmpresaFechaResolucion,
+                    ef.FechaLimiteImpresion AS EmpresaFechaLimite,
+                    ef.DireccionSucursal AS EmpresaDireccionSucursal,
+                    ef.TelefonoSucursal  AS EmpresaTelefonoSucursal,
+                    ef.CorreoEmisor
+                FROM ventas v
+                LEFT JOIN clientes c ON c.idcliente = v.idcliente
+                LEFT JOIN EmpresaFiscal ef ON ef.Id = v.IdEmpresaFiscal
+                WHERE v.idventa = @IdVenta;";
+
+            using (var conn = new SqlConnection(Conexion.cndb))
+            using (var cmd = new SqlCommand(sql, conn))
             {
                 cmd.Parameters.AddWithValue("@IdVenta", idVenta);
-                cn.Open();
+                conn.Open();
+
                 using (var dr = cmd.ExecuteReader())
                 {
                     if (dr.Read())
@@ -182,23 +291,53 @@ namespace Datos
                             NumeroFactura = dr.GetInt32(dr.GetOrdinal("numerofactura")),
                             TipoFactura = dr.GetString(dr.GetOrdinal("tipoFactura"))[0],
                             IdCliente = dr.GetInt32(dr.GetOrdinal("idcliente")),
-                            NombreCliente = dr["nombreCliente"] as string ?? string.Empty,
-                            NITCliente = dr["nitCliente"] as string ?? string.Empty,
-                            DireccionCliente = dr["direccionCliente"] as string ?? string.Empty,
-                            TotalProducto = dr.GetInt32(dr.GetOrdinal("totalproducto")),
-                            MontoTotal = dr.GetDecimal(dr.GetOrdinal("montototal")),
+                            NombreCliente = dr["NombreCliente"] as string ?? string.Empty,
+                            ApellidoCliente = dr["ApellidoCliente"] as string ?? string.Empty,
+                            TipoDocumentoCliente = dr["TipoDocumentoCliente"] as string ?? string.Empty,
+                            NumeroDocumentoCliente = dr["NumeroDocumentoCliente"] as string ?? string.Empty,
+                            DireccionCliente = dr["DireccionCliente"] as string ?? string.Empty,
+                            TelefonoCliente = dr["TelefonoCliente"] as string ?? string.Empty,
+                            TotalProducto = dr["totalproducto"] != DBNull.Value
+                                                        ? dr.GetInt32(dr.GetOrdinal("totalproducto"))
+                                                        : 0,
+                            MontoTotal = dr["montototal"] != DBNull.Value
+                                                        ? dr.GetDecimal(dr.GetOrdinal("montototal"))
+                                                        : 0m,
                             Contacto = dr["contacto"] as string ?? string.Empty,
                             IdDistrito = dr["iddistrito"] as string ?? string.Empty,
-                            Telefono = dr["telefono"] as string ?? string.Empty,
-                            Direccion = dr["direccion"] as string ?? string.Empty,
+                            Telefono = dr["Telefono"] as string ?? string.Empty,
+                            Direccion = dr["Direccion"] as string ?? string.Empty,
                             IdTransaccion = dr["idtransaccion"] as string ?? string.Empty,
                             PlazoCreditoDias = dr["plazoCreditoDias"] != DBNull.Value
-                                ? dr.GetInt32(dr.GetOrdinal("plazoCreditoDias")) : 0,
+                                                        ? dr.GetInt32(dr.GetOrdinal("plazoCreditoDias"))
+                                                        : 0,
                             FechaVencimiento = dr["fechaVencimiento"] != DBNull.Value
-                                ? dr.GetDateTime(dr.GetOrdinal("fechaVencimiento"))
-                                : DateTime.MinValue,
-                            FechaVenta = dr.GetDateTime(dr.GetOrdinal("fechaventa")),
-                            // resto dejaremos que lo pueble N_EmpresaFiscal
+                                                        ? dr.GetDateTime(dr.GetOrdinal("fechaVencimiento"))
+                                                        : DateTime.MinValue,
+                            FechaVenta = dr["fechaventa"] != DBNull.Value
+                                                        ? dr.GetDateTime(dr.GetOrdinal("fechaventa"))
+                                                        : DateTime.MinValue,
+                            CodigoGeneracion = dr["codigoGeneracion"] as string ?? string.Empty,
+                            JsonDte = dr["jsonDte"] as string ?? string.Empty,
+                            EstadoFactura = dr["estadoFactura"] != DBNull.Value
+                                                        ? Convert.ToByte(dr["estadoFactura"])
+                                                        : (byte)0,
+
+                            // Empresa Fiscal
+                            EmpresaNombre = dr["EmpresaNombre"] as string ?? string.Empty,
+                            EmpresaNRC = dr["EmpresaNRC"] as string ?? string.Empty,
+                            EmpresaNIT = dr["EmpresaNIT"] as string ?? string.Empty,
+                            EmpresaNumeroResolucion = dr["EmpresaNumeroResolucion"] as string ?? string.Empty,
+                            EmpresaCAI = dr["EmpresaCAI"] as string ?? string.Empty,
+                            EmpresaFechaResolucion = dr["EmpresaFechaResolucion"] != DBNull.Value
+                                                        ? dr.GetDateTime(dr.GetOrdinal("EmpresaFechaResolucion"))
+                                                        : DateTime.MinValue,
+                            EmpresaFechaLimiteImpresion = dr["EmpresaFechaLimite"] != DBNull.Value
+                                                        ? dr.GetDateTime(dr.GetOrdinal("EmpresaFechaLimite"))
+                                                        : DateTime.MinValue,
+                            EmpresaDireccionSucursal = dr["EmpresaDireccionSucursal"] as string ?? string.Empty,
+                            EmpresaTelefonoSucursal = dr["EmpresaTelefonoSucursal"] as string ?? string.Empty,
+                            EmpresaCorreoEmisor = dr["CorreoEmisor"] as string ?? string.Empty
                         };
                     }
                 }
@@ -207,139 +346,65 @@ namespace Datos
             return venta;
         }
 
-        public List<Venta> ListarVentas()
+        /// <summary>
+        /// Devuelve todos los detalles de una venta para poder confeccionar el JSON/PDF.
+        /// </summary>
+        public List<DetalleVenta> ObtenerDetallesPorVentaId(int idVenta)
         {
-            var lista = new List<Venta>();
-            var sql = @"
-            SELECT 
-              v.idventa,
-              v.seriefactura,
-              v.numerofactura,
-              v.tipoFactura,
-              v.idcliente,
-              c.nombres AS NombreCliente,
-              c.apellidos AS ApellidoCliente,
-              v.totalproducto,
-              v.montototal,
-              v.idtransaccion,
-              v.fechaventa
-            FROM ventas v
-            LEFT JOIN clientes c ON c.idcliente = v.idcliente";
+            var lista = new List<DetalleVenta>();
+            const string sql = @"
+                SELECT 
+                    dv.iddetventa,
+                    dv.idventa,
+                    dv.idproducto,
+                    dv.cantidad,
+                    dv.precio        AS PrecioUnitario,
+                    dv.ventaGravada  AS Subtotal,
+                    dv.montoDescuento,
+                    dv.iva           AS IvaPorItem,
+                    dv.total         AS TotalLinea,
+                    p.nombre         AS NombreProducto,
+                    p.codigo         AS CodigoProducto,
+                    m.descripcion    AS Marca,
+                    c.descripcion    AS Categoria
+                FROM detallesVentas dv
+                INNER JOIN productos p ON p.idproducto = dv.idproducto
+                INNER JOIN marcas m ON m.idmarca = p.idmarca
+                INNER JOIN categorias c ON c.idcategoria = p.idcategoria
+                WHERE dv.idventa = @IdVenta;";
 
-            using (var cn = new SqlConnection(Conexion.cndb))
-            using (var cmd = new SqlCommand(sql, cn))
+            using (var conn = new SqlConnection(Conexion.cndb))
+            using (var cmd = new SqlCommand(sql, conn))
             {
-                cn.Open();
+                cmd.Parameters.AddWithValue("@IdVenta", idVenta);
+                conn.Open();
+
                 using (var dr = cmd.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        var v = new Venta
+                        lista.Add(new DetalleVenta
                         {
+                            IdDetVenta = dr.GetInt32(dr.GetOrdinal("iddetventa")),
                             IdVenta = dr.GetInt32(dr.GetOrdinal("idventa")),
-
-                            // SerieFactura puede ser NULL
-                            SerieFactura = dr["seriefactura"] as string ?? string.Empty,
-
-                            // NumeroFactura, si fuera NULL (aunque no debería), ponemos 0
-                            NumeroFactura = dr["numerofactura"] != DBNull.Value
-                                ? dr.GetInt32(dr.GetOrdinal("numerofactura"))
-                                : 0,
-
-                            // TipoFactura: leemos el primer char de la cadena o 'F' por defecto
-                            TipoFactura = (!dr.IsDBNull(dr.GetOrdinal("tipoFactura"))
-                                ? (dr["tipoFactura"] as string)[0]
-                                : 'F'),
-
-                            IdCliente = dr["idcliente"] != DBNull.Value
-                                ? dr.GetInt32(dr.GetOrdinal("idcliente"))
-                                : 0,
-
-                            NombreCliente = dr["NombreCliente"] as string ?? "",
-                            ApellidoCliente = dr["ApellidoCliente"] as string ?? "",
-
-                            TotalProducto = dr["totalproducto"] != DBNull.Value
-                                ? dr.GetInt32(dr.GetOrdinal("totalproducto"))
-                                : 0,
-
-                            MontoTotal = dr["montototal"] != DBNull.Value
-                                ? dr.GetDecimal(dr.GetOrdinal("montototal"))
-                                : 0m,
-
-                            //Contacto = dr["contacto"] as string ?? string.Empty,
-
-                            FechaVenta = dr["fechaventa"] != DBNull.Value
-                                ? dr.GetDateTime(dr.GetOrdinal("fechaventa"))
-                                : DateTime.MinValue
-                        };
-
-                        lista.Add(v);
+                            IdProducto = dr.GetInt32(dr.GetOrdinal("idproducto")),
+                            Cantidad = dr.GetInt32(dr.GetOrdinal("cantidad")),
+                            Precio = dr.GetDecimal(dr.GetOrdinal("PrecioUnitario")),
+                            Subtotal = dr.GetDecimal(dr.GetOrdinal("Subtotal")),
+                            MontoDescuento = dr.GetDecimal(dr.GetOrdinal("montoDescuento")),
+                            Iva = dr.GetDecimal(dr.GetOrdinal("IvaPorItem")),
+                            Total = dr.GetDecimal(dr.GetOrdinal("TotalLinea")),
+                            NombreProducto = dr["NombreProducto"] as string ?? string.Empty,
+                            CodigoProducto = dr["CodigoProducto"] as string ?? string.Empty,
+                            Marca = dr["Marca"] as string ?? string.Empty,
+                            Categoria = dr["Categoria"] as string ?? string.Empty,
+                            CreditoFiscal = false // ya no lo almacenamos aquí, pues la lógica DTE usa ventaGravada/Iva
+                        });
                     }
                 }
             }
 
             return lista;
         }
-
-
-        public List<DetalleVenta> ListarDetalles(int idVenta)
-        {
-            List<DetalleVenta> lista = new List<DetalleVenta>();
-
-            try
-            {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cndb))
-                {
-                    string query = @"
-    SELECT dv.*, 
-           p.nombre AS NombreProducto, 
-           p.precio AS Precio, 
-           dv.precio AS PrecioDetalle, -- OJO si quieres diferenciar
-           dv.credito_fiscal,
-           dv.iva,
-           m.descripcion AS NombreMarca, 
-           c.descripcion AS NombreCategoria
-    FROM detallesVentas dv
-    INNER JOIN productos p ON p.idproducto = dv.idproducto
-    INNER JOIN marcas m ON m.idmarca = p.idmarca
-    INNER JOIN categorias c ON c.idcategoria = p.idcategoria
-    WHERE dv.idventa = @IdVenta";
-
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.Parameters.AddWithValue("@IdVenta", idVenta);
-                    cmd.CommandType = CommandType.Text;
-                    oconexion.Open();
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new DetalleVenta()
-                            {
-                                IdDetVenta = Convert.ToInt32(dr["iddetventa"]),
-                                IdVenta = Convert.ToInt32(dr["idventa"]),
-                                IdProducto = Convert.ToInt32(dr["idproducto"]),
-                                Cantidad = Convert.ToInt32(dr["cantidad"]),
-                                Total = Convert.ToDecimal(dr["total"]),
-                                NombreProducto = dr["NombreProducto"].ToString(),
-                                Precio = Convert.ToDecimal(dr["Precio"]),
-                                NombreMarca = dr["NombreMarca"].ToString(),
-                                NombreCategoria = dr["NombreCategoria"].ToString(),
-                                CreditoFiscal = Convert.ToBoolean(dr["credito_fiscal"]),
-                                Iva = Convert.ToDecimal(dr["iva"])
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                lista = new List<DetalleVenta>();
-                // Manejo del error
-            }
-
-            return lista;
-        }
-
     }
 }

@@ -3,12 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\presentacionadmin\\views\\ventas\\listadoventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\views\\ventas\\listadoventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\presentacionadmin\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\presentacionadmin\\views\\ventas\\_ventaform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\views\\ventas\\_ventaform.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\presentacionadmin\\views\\ventas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\views\\ventas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\presentacionadmin\\views\\ventas\\ventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\views\\ventas\\ventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\presentacionadmin\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\datos\\d_emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|solutionrelative:datos\\d_emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\datos\\d_pdfgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|solutionrelative:datos\\d_pdfgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\datos\\d_dtegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|solutionrelative:datos\\d_dtegenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|c:\\users\\carlo\\onedrive\\escritorio\\sisventafarmacia-master\\datos\\d_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|solutionrelative:datos\\d_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\negocios\\n_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|solutionrelative:negocios\\n_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\negocios\\n_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|solutionrelative:negocios\\n_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\presentacionadmin\\views\\ventas\\listadoventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\views\\ventas\\listadoventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\presentacionadmin\\views\\ventas\\registrarventaconsumidor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,22 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\presentacionadmin\\views\\ventas\\registrarventacredito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\views\\ventas\\registrarventacredito.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\negocios\\n_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|solutionrelative:negocios\\n_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\presentacionadmin\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{985768DB-2236-48FC-A525-1050B5499E34}|PresentacionAdmin\\PresentacionAdmin.csproj|solutionrelative:presentacionadmin\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\datos\\d_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F76052C6-68BF-4AEC-B80D-F238EF08596B}|Datos\\Datos.csproj|solutionrelative:datos\\d_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\negocios\\n_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66F39359-9351-478E-94D7-1D38F32B7912}|Negocios\\Negocios.csproj|solutionrelative:negocios\\n_ventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4AEF172C-20FB-4354-A300-E17E1FA29321}|Entidad\\Entidad.csproj|C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\entidad\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -70,11 +94,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "BundleConfig.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionTienda\\App_Start\\BundleConfig.cs",
               "RelativeDocumentMoniker": "PresentacionTienda\\App_Start\\BundleConfig.cs",
@@ -87,44 +111,112 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "VentasController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Controllers\\VentasController.cs",
               "RelativeDocumentMoniker": "PresentacionAdmin\\Controllers\\VentasController.cs",
               "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Controllers\\VentasController.cs",
               "RelativeToolTip": "PresentacionAdmin\\Controllers\\VentasController.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAgwAYBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAIwHwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T23:10:48.066Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_VentaForm.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\_VentaForm.cshtml",
+              "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\_VentaForm.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\_VentaForm.cshtml",
+              "RelativeToolTip": "PresentacionAdmin\\Views\\Ventas\\_VentaForm.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T16:55:43.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\Create.cshtml",
+              "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\Create.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\Create.cshtml",
+              "RelativeToolTip": "PresentacionAdmin\\Views\\Ventas\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-06T16:55:14.018Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "N_productos.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Negocios\\N_productos.cs",
-              "RelativeDocumentMoniker": "Negocios\\N_productos.cs",
-              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Negocios\\N_productos.cs",
-              "RelativeToolTip": "Negocios\\N_productos.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowDkAAAA8AAAAAAAAAA==",
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Web.config",
+              "RelativeDocumentMoniker": "PresentacionAdmin\\Web.config",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Web.config",
+              "RelativeToolTip": "PresentacionAdmin\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-06T16:08:34.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "D_EmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_EmailSender.cs",
+              "RelativeDocumentMoniker": "Datos\\D_EmailSender.cs",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_EmailSender.cs",
+              "RelativeToolTip": "Datos\\D_EmailSender.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA5wEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T22:30:21.972Z"
+              "WhenOpened": "2025-06-06T16:06:46.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "D_PdfGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_PdfGenerator.cs",
+              "RelativeDocumentMoniker": "Datos\\D_PdfGenerator.cs",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_PdfGenerator.cs",
+              "RelativeToolTip": "Datos\\D_PdfGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T16:04:28.532Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "D_DteGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_DteGenerator.cs",
+              "RelativeDocumentMoniker": "Datos\\D_DteGenerator.cs",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_DteGenerator.cs",
+              "RelativeToolTip": "Datos\\D_DteGenerator.cs",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAUwIMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T16:03:59.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "N_Ventas.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Negocios\\N_Ventas.cs",
               "RelativeDocumentMoniker": "Negocios\\N_Ventas.cs",
               "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Negocios\\N_Ventas.cs",
               "RelativeToolTip": "Negocios\\N_Ventas.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAowBoAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwBoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T23:33:59.477Z"
+              "WhenOpened": "2025-04-27T23:33:59.477Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "RegistrarVentaConsumidor.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\RegistrarVentaConsumidor.cshtml",
               "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\RegistrarVentaConsumidor.cshtml",
@@ -136,19 +228,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "D_Ventas.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_Ventas.cs",
               "RelativeDocumentMoniker": "Datos\\D_Ventas.cs",
               "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_Ventas.cs",
               "RelativeToolTip": "Datos\\D_Ventas.cs",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAQwKEAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAHcBAAAAAAAAAAAUwJoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T22:40:15.477Z"
+              "WhenOpened": "2025-04-27T22:40:15.477Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "Ventas.cshtml",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
+              "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
+              "RelativeToolTip": "PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAMcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-28T00:03:43.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "N_productos.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Negocios\\N_productos.cs",
+              "RelativeDocumentMoniker": "Negocios\\N_productos.cs",
+              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Negocios\\N_productos.cs",
+              "RelativeToolTip": "Negocios\\N_productos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-27T22:30:21.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "ListadoVentas.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\ListadoVentas.cshtml",
               "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\ListadoVentas.cshtml",
@@ -156,12 +274,11 @@
               "RelativeToolTip": "PresentacionAdmin\\Views\\Ventas\\ListadoVentas.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-28T00:30:25.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-28T00:30:25.736Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "RegistrarVentaCredito.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\RegistrarVentaCredito.cshtml",
               "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\RegistrarVentaCredito.cshtml",
@@ -173,19 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Ventas.cshtml",
-              "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
-              "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
-              "ToolTip": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
-              "RelativeToolTip": "PresentacionAdmin\\Views\\Ventas\\Ventas.cshtml",
-              "ViewState": "AgIAAMQAAAAAAAAAAAAAAOUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-28T00:03:43.563Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "Venta.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Entidad\\Venta.cs",
               "RelativeDocumentMoniker": "Entidad\\Venta.cs",
@@ -197,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "EmpresaFiscal.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Entidad\\EmpresaFiscal.cs",
               "RelativeDocumentMoniker": "Entidad\\EmpresaFiscal.cs",
@@ -209,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "D_EmpresaFiscal.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\Datos\\D_EmpresaFiscal.cs",
               "RelativeDocumentMoniker": "Datos\\D_EmpresaFiscal.cs",
@@ -221,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "VentaViewModel.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Models\\VentaViewModel.cs",
               "RelativeDocumentMoniker": "PresentacionAdmin\\Models\\VentaViewModel.cs",
@@ -233,7 +338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionAdmin\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "PresentacionAdmin\\Views\\Home\\Index.cshtml",
@@ -245,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\OneDrive\\Escritorio\\SisVentaFarmacia-master\\PresentacionTienda\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "PresentacionTienda\\Controllers\\HomeController.cs",

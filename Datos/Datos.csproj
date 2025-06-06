@@ -281,8 +281,11 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="D_Categorias.cs" />
     <Compile Include="D_Categorias.cs" />
+    <Compile Include="D_DteGenerator.cs" />
+    <Compile Include="D_EmailSender.cs" />
     <Compile Include="D_EmpresaFiscal.cs" />
     <Compile Include="D_Marcas.cs" />
+    <Compile Include="D_PdfGenerator.cs" />
     <Compile Include="D_productos.cs" />
     <Compile Include="D_Reportes.cs" />
     <Compile Include="D_Usuarios.cs" />

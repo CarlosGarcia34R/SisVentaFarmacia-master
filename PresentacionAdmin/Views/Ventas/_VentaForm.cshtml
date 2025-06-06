@@ -1,0 +1,149 @@
+﻿@using System.Globalization
+@model dynamic  
+
+@{
+    // Extraemos el tipo de factura y el modelo Venta
+    string tipo = Model.Tipo as string;
+    var venta = Model.Venta as Entidad.Venta;
+    bool esCredito = (tipo == "C");
+}
+
+@using (Html.BeginForm("Create", "Ventas", FormMethod.Post, new { @class = "needs-validation", novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+    @* Campos ocultos necesarios para indicar el tipo de factura *@
+    @Html.HiddenFor(m => venta.IdVenta)
+    <input type="hidden" name="TipoFactura" value="@tipo" />
+
+    <div class="row g-3">
+        <!-- ID Cliente (selector) -->
+        <div class="col-md-4">
+            <label asp-for="Venta.IdCliente" class="form-label">Cliente</label>
+            <select asp-for="Venta.IdCliente" class="form-select" required>
+                <option value="">-- Seleccione Cliente --</option>
+                @* Aquí podrías llenar con ViewBag.ListaClientes si lo tienes *@
+                @* Ejemplo: <option value="1">Carlos Sánchez</option> *@
+            </select>
+            <div class="invalid-feedback">Debe seleccionar un cliente.</div>
+        </div>
+
+        <!-- Campos específicos de Crédito Fiscal -->
+        @if (esCredito)
+        {
+            <div class="col-md-4">
+                <label asp-for="Venta.TipoDocumentoCliente" class="form-label">Tipo Documento</label>
+                <select asp-for="Venta.TipoDocumentoCliente" class="form-select" required>
+                    <option value="">-- Tipo Doc. --</option>
+                    <option value="04">NIT</option>
+                    <option value="13">DUI</option>
+                </select>
+                <div class="invalid-feedback">Seleccione tipo de documento.</div>
+            </div>
+            <div class="col-md-4">
+                <label asp-for="Venta.NumeroDocumentoCliente" class="form-label">NIT / DUI</label>
+                <input asp-for="Venta.NumeroDocumentoCliente" class="form-control" required />
+                <div class="invalid-feedback">Ingrese NIT o DUI.</div>
+            </div>
+        }
+        else
+        {
+            @* Consumidor Final: mostramos campos por defecto, pero en blanco o con “Consumidor Final” *@
+            <div class="col-md-4">
+                <label class="form-label">Tipo Documento</label>
+                <input type="text" class="form-control" value="07" readonly />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">N° Documento</label>
+                <input type="text" class="form-control" value="0000000-0" readonly />
+            </div>
+        }
+
+        <!-- Nombre Cliente -->
+        <div class="col-md-4">
+            <label asp-for="Venta.NombreCliente" class="form-label">Nombre Cliente</label>
+            <input asp-for="Venta.NombreCliente" class="form-control" required />
+            <div class="invalid-feedback">Ingrese nombre del cliente.</div>
+        </div>
+
+        <!-- Dirección Cliente -->
+        <div class="col-md-4">
+            <label asp-for="Venta.DireccionCliente" class="form-label">Dirección Cliente</label>
+            <input asp-for="Venta.DireccionCliente" class="form-control" required />
+            <div class="invalid-feedback">Ingrese dirección.</div>
+        </div>
+
+        <!-- Teléfono Cliente -->
+        <div class="col-md-4">
+            <label asp-for="Venta.TelefonoCliente" class="form-label">Teléfono Cliente</label>
+            <input asp-for="Venta.TelefonoCliente" class="form-control" required />
+            <div class="invalid-feedback">Ingrese teléfono.</div>
+        </div>
+
+        <!-- Contacto (correo) -->
+        <div class="col-md-4">
+            <label asp-for="Venta.Contacto" class="form-label">Correo Electrónico</label>
+            <input asp-for="Venta.Contacto" class="form-control" type="email" required />
+            <div class="invalid-feedback">Ingrese correo válido.</div>
+        </div>
+
+        <!-- Fecha de vencimiento (solo Crédito Fiscal) -->
+        <div class="col-md-4">
+            <label asp-for="Venta.FechaVencimiento" class="form-label">Fecha Vencimiento</label>
+            <input asp-for="Venta.FechaVencimiento" id="FechaVencimiento" type="date" class="form-control" @(esCredito ? "required" : "disabled") />
+            <div class="invalid-feedback">Ingrese fecha de vencimiento.</div>
+        </div>
+
+        <!-- Lista de productos (detalle dinámico) -->
+        <div class="col-12">
+            <h5 class="mt-4">Detalles de Venta</h5>
+            <table class="table table-sm table-bordered" id="tblDetalles">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:5%">#</th>
+                        <th>Producto</th>
+                        <th style="width:10%">Cant</th>
+                        <th style="width:15%">P.Unit</th>
+                        <th style="width:15%">IVA</th>
+                        <th style="width:15%">Total</th>
+                        <th style="width:5%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* Se generarán filas dinámicamente con JS/jQuery *@
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td><span id="sumaCant">0</span></td>
+                        <td></td>
+                        <td><span id="sumaIva">0.00</span></td>
+                        <td><span id="sumaTotal">0.00</span></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <button type="button" id="btnAgregarProducto" class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-plus"></i> Agregar Producto
+            </button>
+        </div>
+
+        <!-- Totales generales -->
+        <div class="col-md-4 mt-3">
+            <label class="form-label fw-bold">Total Productos</label>
+            <input asp-for="Venta.TotalProducto" class="form-control" readonly />
+        </div>
+        <div class="col-md-4 mt-3">
+            <label class="form-label fw-bold">Monto Total (USD)</label>
+            <input asp-for="Venta.MontoTotal" class="form-control" readonly />
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="col-12 text-end mt-4">
+            <a href="@Url.Action("Index", "Ventas")" class="btn btn-outline-secondary me-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Venta</button>
+        </div>
+    </div>
+}
+

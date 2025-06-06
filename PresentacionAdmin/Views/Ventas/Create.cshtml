@@ -1,0 +1,67 @@
+﻿@model Entidad.Venta
+
+@{
+    ViewBag.Title = "Nueva Venta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-4">
+    <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light rounded-3 px-3 py-2">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Index", "Ventas")" class="text-decoration-none">🏠 Ventas</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">➕ Nueva Venta</li>
+        </ol>
+    </nav>
+
+    <h2 class="mb-4">Registrar Venta</h2>
+
+    <!-- PESTAÑAS PARA ELEGIR TIPO DE FACTURA -->
+    <ul class="nav nav-tabs mb-4" id="tabTipoFactura" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tabConsumidor" data-bs-toggle="tab" data-bs-target="#consumidorTab" type="button" role="tab">
+                Consumidor Final
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tabCredito" data-bs-toggle="tab" data-bs-target="#creditoTab" type="button" role="tab">
+                Crédito Fiscal
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="tabContentTF">
+        <!-- ********************* TAB: Consumidor Final ********************* -->
+        <div class="tab-pane fade show active" id="consumidorTab" role="tabpanel">
+            @Html.Partial("_VentaForm", new { Tipo = "F", Venta = Model })
+        </div>
+
+        <!-- ********************* TAB: Crédito Fiscal ********************* -->
+        <div class="tab-pane fade" id="creditoTab" role="tabpanel">
+            @Html.Partial("_VentaForm", new { Tipo = "C", Venta = Model })
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Si necesitas algún JS extra para el formulario (por ejemplo:
+        // deshabilitar campos de fecha vencimiento en Consumidor Final),
+        // puedes agregarlo aquí. Por ejemplo:
+        $(function () {
+            // Cuando se muestre la pestaña Crédito Fiscal, habilita la fecha de vencimiento
+            $('#creditoTab').on('shown.bs.tab', function () {
+                $('#FechaVencimiento').prop('disabled', false);
+            });
+            // Cuando se muestre Consumidor Final, deshabilita la fecha de vencimiento
+            $('#consumidorTab').on('shown.bs.tab', function () {
+                $('#FechaVencimiento').prop('disabled', true);
+            });
+
+            // Iniciar estado para CF (consumidor final)
+            $('#FechaVencimiento').prop('disabled', true);
+        });
+    </script>
+}
